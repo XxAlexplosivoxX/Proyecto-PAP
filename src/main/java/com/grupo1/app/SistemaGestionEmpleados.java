@@ -1,12 +1,8 @@
 package com.grupo1.app;
 
 import java.awt.*;
-import java.lang.reflect.Array;
-
 import javax.swing.*;
 import java.net.URL;
-import java.util.List;
-import java.util.Arrays;
 
 import com.formdev.flatlaf.FlatDarkLaf; // no c si queda esee
 // import com.formdev.flatlaf.FlatLightLaf;
