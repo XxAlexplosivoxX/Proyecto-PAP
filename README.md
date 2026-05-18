@@ -29,4 +29,4 @@
 
 usé [Flatlaf](https://www.formdev.com/flatlaf/) pq sale mucho más sencillo con java swing y nomas editar lo visual con esa movida (ahorita solo son placeholders)
 
-<img src="./se lía/screenshot-2026-05-18_16-47-27.png">
+<img src="./se lía/screenshot-2026-05-18_17-19-52.png">
