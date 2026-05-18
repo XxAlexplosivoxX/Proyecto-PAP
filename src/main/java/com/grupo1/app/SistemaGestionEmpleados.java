@@ -48,7 +48,7 @@ public class SistemaGestionEmpleados extends JFrame // Clase principal
                 // añadir el texto arriba
                 gbc.gridy = 0; // fila 0
                 JLabel textoBienvenida = new JLabel("Bienvenido al Sistema de Gestión de Empleados - Grupo 1");
-                textoBienvenida.setFont(new Font("Segoe UI", Font.BOLD, 17)); // Por si quieres subirle el tamaño
+                textoBienvenida.setFont(new Font("Segoe UI", Font.BOLD, 17));
                 panel.add(textoBienvenida, gbc);
 
                 gbc.gridy = 1; // fila 1
@@ -81,7 +81,7 @@ public class SistemaGestionEmpleados extends JFrame // Clase principal
 
     private SistemaGestionEmpleados() {
         setTitle("Sistema de Gestión de Empleados - Grupo 1");
-        setSize(800, 500);
+        setSize(900, 560);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
