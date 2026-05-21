@@ -1,13 +1,13 @@
 package com.grupo1.app;
 
-public class EmpleadoFIjo extends Empleado {
+public class EmpleadoFijo extends Empleado {
     // Atributo específico para EmpleadoFijo 
     private double salarioMensual;
 
     /**
      * Constructor modificado para incluir el nuevo atributo heredando de la base.
      */
-    public EmpleadoFIjo(String nombre, String apellidos, String dui, Double salario, double salarioMensual) {
+    public EmpleadoFijo(String nombre, String apellidos, String dui, Double salario, double salarioMensual) {
         // super() manda a llamar obligatoriamente al constructor de la clase padre (Empleado)
         super(nombre, apellidos, dui, salario);
         this.salarioMensual = salarioMensual;

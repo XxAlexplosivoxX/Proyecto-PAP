@@ -89,7 +89,7 @@ public class SistemaGestionEmpleados extends JFrame // Clase principal
                         Double base = Double.parseDouble(txtSalarioBase.getText().replace(",", ""));
                         double mensual = Double.parseDouble(txtSalarioMensual.getText().replace(",", ""));
                         // Aquí se ejecuta tu clase EmpleadoFIjo
-                        EmpleadoFIjo nuevoEmpleado = new EmpleadoFIjo(nom, ape, dui, base, mensual);
+                        EmpleadoFijo nuevoEmpleado = new EmpleadoFijo(nom, ape, dui, base, mensual);
 
                         // Mensaje de éxito usando tu método toString() optimizado
                         JOptionPane.showMessageDialog(panel, "¡Empleado Fijo guardado con éxito!\n" + nuevoEmpleado.toString());
