@@ -1,4 +1,4 @@
-package com.grupo1.app;
+package com.grupo1.app.Clases;
 
 public class EmpleadoFijo extends Empleado {
     // Atributo específico para EmpleadoFijo 

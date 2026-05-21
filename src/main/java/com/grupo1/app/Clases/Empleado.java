@@ -1,4 +1,4 @@
-package com.grupo1.app;
+package com.grupo1.app.Clases;
 
 public abstract class Empleado {
     // Atributos obligatorios según la guía 

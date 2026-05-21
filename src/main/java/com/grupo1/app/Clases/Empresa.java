@@ -1,6 +1,4 @@
 package com.grupo1.app.Clases;
-//Empresa.java
-import com.grupo1.app.Empleado;
 import java.util.ArrayList;
 import java.util.List;
 
