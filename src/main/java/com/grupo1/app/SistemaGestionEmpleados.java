@@ -32,7 +32,79 @@ public class SistemaGestionEmpleados extends JFrame // Clase principal
                 panel.add(new JLabel("pa configurar la empresa instanciada al ejecutar la wea"));
                 break;
             case "añadir":
-                panel.add(new JLabel("pa añadir empleados a la empresa"));
+                // 1. Crear el panel del formulario con un diseño ordenado (GridBagLayout)
+                JPanel formularioPanel = new JPanel(new GridBagLayout());
+                formularioPanel.setOpaque(false);
+                GridBagConstraints c = new GridBagConstraints();
+                c.insets = new Insets(8, 8, 8, 8); // Margen entre los componentes
+                c.fill = GridBagConstraints.HORIZONTAL;
+
+                // 2. Crear las etiquetas y las cajas de texto para tus atributos
+                JLabel lblNombre = new JLabel("Nombre:");
+                JTextField txtNombre = new JTextField(15);
+
+                JLabel lblApellidos = new JLabel("Apellidos:");
+                JTextField txtApellidos = new JTextField(15);
+
+                JLabel lblDui = new JLabel("DUI:");
+                JTextField txtDui = new JTextField(15);
+
+                JLabel lblSalarioBase = new JLabel("Salario Base ($):");
+                JTextField txtSalarioBase = new JTextField(15);
+
+                JLabel lblSalarioMensual = new JLabel("Salario Mensual Fijo ($):");
+                JTextField txtSalarioMensual = new JTextField(15);
+
+                JButton btnGuardar = new JButton("Guardar Empleado Fijo");
+
+                // 3. Posicionar los componentes en la cuadrícula (Fila por fila)
+                c.gridx = 0; c.gridy = 0; formularioPanel.add(lblNombre, c);
+                c.gridx = 1; formularioPanel.add(txtNombre, c);
+
+                c.gridx = 0; c.gridy = 1; formularioPanel.add(lblApellidos, c);
+                c.gridx = 1; formularioPanel.add(txtApellidos, c);
+
+                c.gridx = 0; c.gridy = 2; formularioPanel.add(lblDui, c);
+                c.gridx = 1; formularioPanel.add(txtDui, c);
+
+                c.gridx = 0; c.gridy = 3; formularioPanel.add(lblSalarioBase, c);
+                c.gridx = 1; formularioPanel.add(txtSalarioBase, c);
+
+                c.gridx = 0; c.gridy = 4; formularioPanel.add(lblSalarioMensual, c);
+                c.gridx = 1; formularioPanel.add(txtSalarioMensual, c);
+
+                // Posicionar el botón abajo abarcando ambas columnas
+                c.gridx = 0; c.gridy = 5; c.gridwidth = 2;
+                c.fill = GridBagConstraints.NONE;
+                formularioPanel.add(btnGuardar, c);
+
+                // 4. Lógica del botón: Instanciar tus clases de negocio
+                btnGuardar.addActionListener(e -> {
+                    try {
+                        String nom = txtNombre.getText();
+                        String ape = txtApellidos.getText();
+                        String dui = txtDui.getText();
+                        // REEMPLAZANDO COMAS 
+                        // Reemplaza las líneas donde extraes los salarios por estas:
+                        Double base = Double.parseDouble(txtSalarioBase.getText().replace(",", ""));
+                        double mensual = Double.parseDouble(txtSalarioMensual.getText().replace(",", ""));
+                        // Aquí se ejecuta tu clase EmpleadoFIjo
+                        EmpleadoFIjo nuevoEmpleado = new EmpleadoFIjo(nom, ape, dui, base, mensual);
+
+                        // Mensaje de éxito usando tu método toString() optimizado
+                        JOptionPane.showMessageDialog(panel, "¡Empleado Fijo guardado con éxito!\n" + nuevoEmpleado.toString());
+
+                        // Limpiar campos
+                        txtNombre.setText(""); txtApellidos.setText(""); txtDui.setText("");
+                        txtSalarioBase.setText(""); txtSalarioMensual.setText("");
+
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(panel, "Por favor, introduce valores numéricos válidos en los salarios.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                });
+
+                // Añadir el formulario al panel de la pestaña
+                panel.add(formularioPanel);
                 break;
             case "info":
                 panel.add(new JLabel("aqui se debe ver la info de los empleados"));
