@@ -1,4 +1,11 @@
 /home/al3x/Projects/proyecto PAP/gestion-empleados/src/main/java/com/grupo1/app/Clases/Empleado.java
-/home/al3x/Projects/proyecto PAP/gestion-empleados/src/main/java/com/grupo1/app/Clases/EmpleadoFIjo.java
+/home/al3x/Projects/proyecto PAP/gestion-empleados/src/main/java/com/grupo1/app/Clases/EmpleadoFijo.java
+/home/al3x/Projects/proyecto PAP/gestion-empleados/src/main/java/com/grupo1/app/Clases/EmpleadoNoEncontradoException.java
+/home/al3x/Projects/proyecto PAP/gestion-empleados/src/main/java/com/grupo1/app/Clases/EmpleadoPorHora.java
 /home/al3x/Projects/proyecto PAP/gestion-empleados/src/main/java/com/grupo1/app/Clases/Empresa.java
+/home/al3x/Projects/proyecto PAP/gestion-empleados/src/main/java/com/grupo1/app/PanelAgregarEmpleado.java
+/home/al3x/Projects/proyecto PAP/gestion-empleados/src/main/java/com/grupo1/app/PanelConfig.java
+/home/al3x/Projects/proyecto PAP/gestion-empleados/src/main/java/com/grupo1/app/PanelEliminarEmpleado.java
+/home/al3x/Projects/proyecto PAP/gestion-empleados/src/main/java/com/grupo1/app/PanelInfoEmpleados.java
+/home/al3x/Projects/proyecto PAP/gestion-empleados/src/main/java/com/grupo1/app/PanelInicio.java
 /home/al3x/Projects/proyecto PAP/gestion-empleados/src/main/java/com/grupo1/app/SistemaGestionEmpleados.java

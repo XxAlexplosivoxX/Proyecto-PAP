@@ -38,5 +38,5 @@ public class EmpleadoPorHora extends Empleado {
         double salarioTotal = horasTrabajadas * tarifaPorHora;
         setSalario(salarioTotal);
         return salarioTotal;
-}
+    }
 }
