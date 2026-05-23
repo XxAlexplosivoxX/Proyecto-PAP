@@ -79,23 +79,23 @@ public class PanelAgregarEmpleado extends JPanel { // lo moví acá, se estaba v
         c.gridx = 1; formularioPanel.add(txtDui, c);
         
         // Fila 3: Salario Base
-        c.gridx = 0; c.gridy = 3; formularioPanel.add(new JLabel("Salario Base ($): (ni sé si va aqui lvd)"), c);
-        c.gridx = 1; formularioPanel.add(txtSalarioBase, c);
+        // c.gridx = 0; c.gridy = 3; formularioPanel.add(new JLabel("Salario Base ($): (ni sé si va aqui lvd)"), c);
+        // c.gridx = 1; formularioPanel.add(txtSalarioBase, c);
         
-        // Fila 4: Selección de tipo de empleado
-        c.gridx = 0; c.gridy = 4; formularioPanel.add(new JLabel("Tipo Empleado:"), c);
+        // Fila 3: Selección de tipo de empleado
+        c.gridx = 0; c.gridy = 3; formularioPanel.add(new JLabel("Tipo Empleado:"), c);
         c.gridx = 1; formularioPanel.add(radEmpleadoFijo, c); c.gridx = 2; formularioPanel.add(radEmpleadoPorHora, c);
 
-        // Fila 5: Campos variables según el tipo de empleado
-        c.gridx = 0; c.gridy = 5; c.gridwidth = 3;
+        // Fila 4: Campos variables según el tipo de empleado
+        c.gridx = 0; c.gridy = 4; c.gridwidth = 3;
         formularioPanel.add(tarjetaCampos, c);
 
         CardLayout cardLayout = (CardLayout) tarjetaCampos.getLayout();
         radEmpleadoFijo.addActionListener(e -> cardLayout.show(tarjetaCampos, "FIJO"));
         radEmpleadoPorHora.addActionListener(e -> cardLayout.show(tarjetaCampos, "POR_HORA"));
 
-        // Fila 6: Botón Guardar
-        c.gridx = 0; c.gridy = 6; c.gridwidth = 3;
+        // Fila 5: Botón Guardar
+        c.gridx = 0; c.gridy = 5; c.gridwidth = 3;
         c.fill = GridBagConstraints.NONE;
         formularioPanel.add(btnGuardar, c);
 
@@ -106,17 +106,15 @@ public class PanelAgregarEmpleado extends JPanel { // lo moví acá, se estaba v
                 String dui = txtDui.getText();
 
                 if (radEmpleadoFijo.isSelected()) {
-                    double salarioBase = Double.parseDouble(txtSalarioBase.getText().replace(",", "")); // esto se cambia dependiendo lo que diga el ing
                     double salarioMensual = Double.parseDouble(txtSalarioMensual.getText().replace(",", ""));
-                    EmpleadoFijo nuevoEmpleado = new EmpleadoFijo(nom, ape, dui, salarioBase, salarioMensual);
+                    EmpleadoFijo nuevoEmpleado = new EmpleadoFijo(nom, ape, dui, salarioMensual, salarioMensual);
                     empresa.agregarEmpleado(nuevoEmpleado);
                     if (alGuardarExitosamente != null) alGuardarExitosamente.run();
                     JOptionPane.showMessageDialog(this, "¡Empleado Fijo guardado con éxito!\n" + nuevoEmpleado);
                 } else {
                     int horasTrabajadas = Integer.parseInt(txtHorasTrabajadas.getText().replace(",", ""));
                     double tarifaPorHora = Double.parseDouble(txtTarifaPorHora.getText().replace(",", ""));
-                    double salarioBase = Double.parseDouble(txtSalarioBase.getText().replace(",", "")); // esto se cambia dependiendo lo que diga el ing
-                    EmpleadoPorHora nuevoEmpleado = new EmpleadoPorHora(nom, ape, dui, salarioBase, horasTrabajadas, tarifaPorHora);
+                    EmpleadoPorHora nuevoEmpleado = new EmpleadoPorHora(nom, ape, dui, horasTrabajadas * tarifaPorHora, horasTrabajadas, tarifaPorHora);
                     empresa.agregarEmpleado(nuevoEmpleado);
                     if (alGuardarExitosamente != null) alGuardarExitosamente.run();
                     JOptionPane.showMessageDialog(this, "¡Empleado por hora guardado con éxito!\n" + nuevoEmpleado);

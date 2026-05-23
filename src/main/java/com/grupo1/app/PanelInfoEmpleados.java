@@ -28,7 +28,7 @@ public class PanelInfoEmpleados extends JPanel {
 
         modeloTabla = new DefaultTableModel(
                 new Object[][] {}, 
-                new String[] { "Nombre", "Apellidos", "DUI", "Salario Base", "Salario Mensual", "Tipo Empleado" }
+                new String[] { "Nombre", "Apellidos", "DUI", "Salario Calculado", "Tipo Empleado" }
         );
 
         JTable tablaEmpleados = new JTable(modeloTabla);
@@ -52,8 +52,7 @@ public class PanelInfoEmpleados extends JPanel {
                     emp.getNombre(),
                     emp.getApellidos(),
                     emp.getDui(),
-                    emp.getSalario(),
-                    (emp instanceof EmpleadoFijo) ? ((EmpleadoFijo) emp).getSalarioMensual() : "N/A",
+                    emp.calcularSalario(),
                     tipo
             });
         }
