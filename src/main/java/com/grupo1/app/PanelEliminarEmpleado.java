@@ -28,7 +28,8 @@ public class PanelEliminarEmpleado extends JPanel {
 
         // Separador visual
         JSeparator sep = new JSeparator();
-        sep.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1));
+        sep.setMaximumSize(new Dimension(Integer.MAX_VALUE, 2));
+        sep.setForeground(UIManager.getColor("Separator.foreground"));
         sep.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(Box.createRigidArea(new Dimension(0, 8)));
         add(sep);
