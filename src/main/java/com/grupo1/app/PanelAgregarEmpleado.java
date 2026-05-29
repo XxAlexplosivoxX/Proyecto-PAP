@@ -1,7 +1,25 @@
 package com.grupo1.app;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.CardLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+
 import com.grupo1.app.Clases.EmpleadoFijo;
 import com.grupo1.app.Clases.EmpleadoPorHora;
 import com.grupo1.app.Clases.Empresa;
@@ -14,11 +32,26 @@ public class PanelAgregarEmpleado extends JPanel { // lo moví acá, se estaba v
         this.empresa = empresa;
         this.alGuardarExitosamente = alGuardarExitosamente;
         setOpaque(false);
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         initUI();
     }
 
     private void initUI() {
-        setLayout(new GridBagLayout());
+        // Título
+        JLabel titleLabel = new JLabel("Agregar empleado");
+        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 17));
+        titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(titleLabel);
+
+        // Separador visual
+        JSeparator sep = new JSeparator();
+        sep.setMaximumSize(new Dimension(Integer.MAX_VALUE, 2));
+        sep.setForeground(UIManager.getColor("Separator.foreground"));
+        sep.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(Box.createRigidArea(new Dimension(0, 8)));
+        add(sep);
+        add(Box.createRigidArea(new Dimension(0, 12)));
+
         JPanel formularioPanel = new JPanel(new GridBagLayout());
         formularioPanel.setOpaque(false);
 

@@ -47,7 +47,7 @@ public class SistemaGestionEmpleados extends JFrame {
         // al guardar
         panelAgregar = new PanelAgregarEmpleado(empresa, () -> panelInfo.actualizarTabla());
         panelConfig = new PanelConfig();
-        panelEliminar = new PanelEliminarEmpleado();
+        panelEliminar = new PanelEliminarEmpleado(empresa, () -> panelInfo.actualizarTabla());
 
         // Registrar paneles en el CardLayout
         contenedorPrincipal.add(new PanelInicio(), "Inicio");
@@ -92,10 +92,7 @@ public class SistemaGestionEmpleados extends JFrame {
             panelInfo.actualizarTabla();
             cardLayout.show(contenedorPrincipal, "Información Empleados");
         });
-
         itemInicio.addActionListener(e -> cardLayout.show(contenedorPrincipal, "Inicio"));
-        // itemConfEmpresa.addActionListener(e -> cardLayout.show(contenedorPrincipal,
-        // "Configurar Empresa"));
         itemAddEmpleados.addActionListener(e -> cardLayout.show(contenedorPrincipal, "Agregar Empleados"));
         itemElimEmpleados.addActionListener(e -> cardLayout.show(contenedorPrincipal, "Eliminar Empleados"));
         itemConf.addActionListener(e -> cardLayout.show(contenedorPrincipal, "Configuración"));

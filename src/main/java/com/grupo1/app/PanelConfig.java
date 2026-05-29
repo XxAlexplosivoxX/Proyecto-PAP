@@ -10,39 +10,43 @@ public class PanelConfig extends JPanel {
     
     public PanelConfig() {
         setOpaque(false);
-        setLayout(new GridBagLayout());
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         initUI();
     }
 
     private void initUI() {
+       // Título
+        JLabel titleLabel = new JLabel("Configuración");
+        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 17));
+        titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(titleLabel);
+
+        // Separador visual
+        JSeparator sep = new JSeparator();
+        sep.setMaximumSize(new Dimension(Integer.MAX_VALUE, 2));
+        sep.setForeground(UIManager.getColor("Separator.foreground"));
+        sep.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(Box.createRigidArea(new Dimension(0, 8)));
+        add(sep);
+        add(Box.createRigidArea(new Dimension(0, 12)));
+
+        JPanel comboTemasPanel = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-        c.insets = new Insets(12, 12, 12, 12);
         c.fill = GridBagConstraints.HORIZONTAL;
+            c.anchor = GridBagConstraints.CENTER;
+            c.weighty = 0.0;
+            c.weightx = 1.0;
 
-        c.gridx = 0;
-        c.gridy = 0;
-        c.gridwidth = 2;
-        JLabel lblTitulo = new JLabel("Configuración del Sistema");
-        lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 18));
-        add(lblTitulo, c);
-
-        c.gridy = 1;
-        JSeparator separador = new JSeparator();
-        add(separador, c);
-
-        c.gridwidth = 1;
-
-        c.gridx = 0;
-        c.gridy = 2;
         JLabel lblTema = new JLabel("Tema de la Interfaz:");
         lblTema.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        add(lblTema, c);
+        c.gridx = 0; c.gridy = 0;
+        comboTemasPanel.add(lblTema, c);
 
-        c.gridx = 1;
         String[] opcionesTemas = { "Modo Oscuro (Default)", "Modo Claro" };
         JComboBox<String> comboTemas = new JComboBox<>(opcionesTemas);
         comboTemas.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        add(comboTemas, c);
+        c.gridx = 1; c.gridy = 0;
+        comboTemasPanel.add(comboTemas, c);
 
         comboTemas.addActionListener(e -> {
             int seleccion = comboTemas.getSelectedIndex();
@@ -65,12 +69,15 @@ public class PanelConfig extends JPanel {
             }
         });
 
-        c.gridx = 0;
-        c.gridy = 3;
-        c.gridwidth = 2;
         JLabel lblNota = new JLabel("Nota: Los cambios se aplican inmediatamente a todas las ventanas.");
         lblNota.setFont(new Font("Segoe UI", Font.ITALIC, 11));
         lblNota.setForeground(UIManager.getColor("Label.disabledForeground")); 
-        add(lblNota, c);
+        lblNota.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        comboTemasPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+            comboTemasPanel.setOpaque(false);
+            comboTemasPanel.setMaximumSize(new Dimension(400, 100));
+        c.gridx = 0; c.gridy = 1; c.gridwidth = 2;
+        comboTemasPanel.add(lblNota, c);
+        add(comboTemasPanel);
     }   
 }
